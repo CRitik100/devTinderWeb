@@ -2,9 +2,7 @@ function App() {
   return (
     <>
       <section id="center">
-        <div>
-          <h1>Get started</h1>
-        </div>
+        <button>Hello DaisyUI</button>
       </section>
     </>
   );

@@ -13,8 +13,6 @@
         - import react from "@vitejs/plugin-react";
             import tailwindcss from "@tailwindcss/vite";
             import { defineConfig } from "vite";
-
-            // https://vite.dev/config/
             export default defineConfig({
             plugins: [react(), tailwindcss()],
             });
@@ -23,4 +21,7 @@
 4. install daisyUI as a tailwind plugin.
     -  npm i -D daisyui@latest
 
+## 📝 Notes
+
+- **Use ES Modules, not CommonJS.** Use `import` / `export` instead of `require` / `module.exports`. Vite projects already set `"type": "module"` in `package.json`.
 

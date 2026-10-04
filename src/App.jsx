@@ -1,8 +1,10 @@
+import NavBar from "./component/navbar";
+
 function App() {
   return (
     <>
       <section id="center">
-        <button>Hello DaisyUI</button>
+        <button>Welcome</button>
       </section>
     </>
   );

@@ -6,20 +6,28 @@ import Feed from "./component/Feed";
 import Profile from "./component/Profile";
 import Error from "./component/Error";
 import Connection from "./component/Connection";
+import Base from "./component/Base";
 
 function App() {
   const router = createBrowserRouter([
-    { path: "/login", element: <LogIn /> },
-    { path: "/signup", element: <SignUp /> },
     {
       path: "/",
-      element: <Home />,
+      element: <Base />,
       children: [
-        { path: "/", element: <Feed /> },
-        { path: "/profile", element: <Profile /> },
-        { path: "/connection", element: <Connection /> },
+        { path: "login", element: <LogIn /> },
+        { path: "signup", element: <SignUp /> },
+        {
+          path: "/home",
+          element: <Home />,
+          children: [
+            { path: "", element: <Feed /> },
+            { path: "profile", element: <Profile /> },
+            { path: "connection", element: <Connection /> },
+          ],
+        },
       ],
     },
+    ,
     {
       path: "*",
       element: <Error />,

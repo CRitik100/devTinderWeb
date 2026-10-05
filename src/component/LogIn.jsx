@@ -1,26 +1,30 @@
 import axios from "axios";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import { addUser } from "../utils/redux/slices/userSlice";
+import { BASE_URL } from "../utils/constants";
 
 const LogIn = () => {
-  const [emailId, setEmailId] = useState("");
-  const [password, setPassword] = useState("");
+  const [emailId, setEmailId] = useState("sc11@gmail.com");
+  const [password, setPassword] = useState("Test@123");
   const [showPassword, setShowPassword] = useState(false);
+  const [isCorrectpassword, setIsCorrectPassword] = useState(true);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleLogin = async (e) => {
     try {
       e.preventDefault();
       const signIndata = { emailId, password };
-      const { data } = await axios.post(
-        "http://localhost:3333/login",
-        signIndata,
-        {
-          withCredentials: true,
-        },
-      );
-      console.log(data);
+      const { data } = await axios.post(BASE_URL + "/login", signIndata, {
+        withCredentials: true,
+      });
+      dispatch(addUser(data));
+      setIsCorrectPassword(true);
+      navigate("/home");
     } catch (error) {
+      setIsCorrectPassword(false);
       console.log("error => " + error);
     }
   };
@@ -81,13 +85,18 @@ const LogIn = () => {
             </div>
           </div>
 
-          <div className="text-[#c9c4e8]">
+          <div className="text-[#c9c4e8] flex justify-between">
             <a
               href="/forgot-password"
               className="font-semibold text-[#f1eeff] hover:underline"
             >
               Forgot password?
             </a>
+            <div
+              className={`font-semibold text-[#ec1342] underline ${isCorrectpassword ? "hidden" : "block"}`}
+            >
+              Invalid Password !!
+            </div>
           </div>
 
           <button

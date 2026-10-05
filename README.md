@@ -26,11 +26,14 @@
      for ex. / -> Home component
      /dashboard -> DashBoard component
      /about. -> About component
-6. Install Axios for making an API Call.
+6. install Axios for making an API Call.
       - API calls can be done even using fetch.
       - To save the token you have to pass the {
         withCredentials: true,
       }, in axios, and in the backend the cors middleware must be setup.
+7. install react-redux toolkit.
+   npm install @reduxjs/toolkit react-redux
+8. 
 
 ## 📝 Notes
 

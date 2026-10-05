@@ -1,10 +1,10 @@
 const Logo = () => {
   return (
-    <div className="w-fit bg-[#110e2b] absolute p-3">
+    <div className="absolute left-4 top-4 z-50 w-fit">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="36 26 382 68"
-        className="block h-12 w-auto"
+        className="block h-8 w-auto"
       >
         <defs>
           <linearGradient

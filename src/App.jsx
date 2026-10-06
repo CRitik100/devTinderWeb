@@ -27,11 +27,10 @@ function App() {
         },
       ],
     },
-    ,
     {
       path: "*",
       element: <Error />,
-    },
+    }
   ]);
 
   return <RouterProvider router={router} />;

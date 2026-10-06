@@ -10,7 +10,6 @@ const UserCard = ({ user }) => {
   };
   const onInterested = () => {
     dispatch(removeFeed());
-    
   };
   const meta = [age, gender].join(", ");
   const MAX_SKILLS = 5;

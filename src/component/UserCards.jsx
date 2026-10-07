@@ -1,16 +1,34 @@
 import { useDispatch } from "react-redux";
 import { removeFeed } from "../utils/redux/slices/feedSlice";
+import axios from "axios";
+import { BASE_URL } from "../utils/constants";
 
 const UserCard = ({ user }) => {
-  let { firstName, lastName, photo, age, gender, about, skills = [] } = user;
+  let {
+    firstName,
+    _id,
+    lastName,
+    photo,
+    age,
+    gender,
+    about,
+    skills = [],
+  } = user;
   const dispatch = useDispatch();
 
-  const onPass = () => {
-    dispatch(removeFeed());
+  const handleSendRequest = async (state, userId) => {
+    try {
+      await axios.post(
+        `${BASE_URL}/request/send/${state}/${userId}`,
+        {},
+        { withCredentials: true },
+      );
+      dispatch(removeFeed());
+    } catch (error) {
+      console.log("Error =>" + error?.response);
+    }
   };
-  const onInterested = () => {
-    dispatch(removeFeed());
-  };
+
   const meta = [age, gender].join(", ");
   const MAX_SKILLS = 5;
   const shownSkills = skills.slice(0, MAX_SKILLS);
@@ -62,14 +80,14 @@ const UserCard = ({ user }) => {
         <div className="flex gap-3">
           <button
             type="button"
-            onClick={onPass}
+            onClick={() => handleSendRequest("ignored", _id)}
             className="flex-1 rounded-2xl border-2 border-[#2d2760] py-3.5 text-lg font-semibold text-[#8b84b8] transition hover:border-[#8b84b8] hover:text-[#f1eeff] active:scale-[0.99] cursor-pointer"
           >
             Pass
           </button>
           <button
             type="button"
-            onClick={onInterested}
+            onClick={() => handleSendRequest("interested", _id)}
             className="flex-1 rounded-2xl bg-[#eb5e7c] py-3.5 text-lg font-semibold text-white transition hover:brightness-110 active:scale-[0.99] cursor-pointer"
           >
             Let's build

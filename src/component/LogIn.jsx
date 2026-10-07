@@ -6,8 +6,8 @@ import { addUser } from "../utils/redux/slices/userSlice";
 import { BASE_URL } from "../utils/constants";
 
 const LogIn = () => {
-  const [emailId, setEmailId] = useState("sc11@gmail.com");
-  const [password, setPassword] = useState("Test@123");
+  const [emailId, setEmailId] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isCorrectpassword, setIsCorrectPassword] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");

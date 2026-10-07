@@ -8,6 +8,7 @@ import Error from "./component/Error";
 import Connection from "./component/Connection";
 import Base from "./component/Base";
 import PendingRequest from "./component/PendingRequest";
+import Welcome from "./component/Welcome";
 
 function App() {
   const router = createBrowserRouter([
@@ -15,6 +16,7 @@ function App() {
       path: "/",
       element: <Base />,
       children: [
+        { path: "", element: <Welcome /> },
         { path: "login", element: <LogIn /> },
         { path: "signup", element: <SignUp /> },
         {
@@ -25,7 +27,6 @@ function App() {
             { path: "profile", element: <Profile /> },
             { path: "connection", element: <Connection /> },
             { path: "request", element: <PendingRequest /> },
-
           ],
         },
       ],
@@ -33,7 +34,7 @@ function App() {
     {
       path: "*",
       element: <Error />,
-    }
+    },
   ]);
 
   return <RouterProvider router={router} />;

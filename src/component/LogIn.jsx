@@ -13,14 +13,6 @@ const LogIn = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const userData = useSelector((store) => store.user);
-
-  // useEffect(() => {
-  //   console.log(userData);
-  //   if (userData) {
-  //     navigate("/home", { replace: true });
-  //   }
-  // }, []);
 
   const handleLogin = async (e) => {
     try {

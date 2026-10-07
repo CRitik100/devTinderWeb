@@ -23,13 +23,6 @@ const Home = () => {
         withCredentials: true,
       });
       dispatch(addUser(res?.data));
-      if (["https://www.example.com", ""].includes(userData?.photo)) {
-        dispatch(
-          updateUserPhoto(
-            "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG.png",
-          ),
-        );
-      }
     } catch (error) {
       navigate("/login");
       console.log("Error => " + error);

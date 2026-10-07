@@ -12,8 +12,8 @@ const Profile = () => {
   const [firstName, setFirstName] = useState(loggedinUser?.firstName);
   const [lastName, setLastName] = useState(loggedinUser?.lastName);
   const [photo, setPhoto] = useState(loggedinUser?.photo);
-  const [age, setAge] = useState(loggedinUser?.age);
-  const [gender, setGender] = useState(loggedinUser?.gender);
+  const [age, setAge] = useState(loggedinUser?.age || 18);
+  const [gender, setGender] = useState(loggedinUser?.gender || "");
   const [about, setAbout] = useState(loggedinUser?.about);
   const [skills, setSkills] = useState(loggedinUser?.skills);
   const [errorMessage, setErrorMessage] = useState("");
@@ -145,6 +145,9 @@ const Profile = () => {
                   onChange={(e) => setGender(e.target.value)}
                   className={`select ${inputClass} appearance-none  `}
                 >
+                  <option value="" disabled>
+                    Select gender
+                  </option>
                   <option value="male">male</option>
                   <option value="female">female</option>
                   <option value="others">others</option>

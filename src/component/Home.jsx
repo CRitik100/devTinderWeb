@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import ShimmerUI from "./ShimmerUI";
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
-import { addUser } from "../utils/redux/slices/userSlice";
+import { addUser, updateUserPhoto } from "../utils/redux/slices/userSlice";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -23,6 +23,13 @@ const Home = () => {
         withCredentials: true,
       });
       dispatch(addUser(res?.data));
+      if (["https://www.example.com", ""].includes(userData?.photo)) {
+        dispatch(
+          updateUserPhoto(
+            "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG.png",
+          ),
+        );
+      }
     } catch (error) {
       navigate("/login");
       console.log("Error => " + error);

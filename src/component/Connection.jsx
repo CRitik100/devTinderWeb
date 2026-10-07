@@ -32,11 +32,13 @@ const Connection = () => {
   ) : (
     <div className=" h-[calc(100dvh-4rem)] w-dvw flex justify-center items-center">
       <div className="border-[#2d2760] bg-[#1d1745] w-4/5 h-5/6 rounded-2xl p-11 grid grid-cols-[1fr_2fr] gap-3 ">
-        <div className="flex flex-col gap-1">
-          Friends
-          {connectionData.map((data) => (
-            <UserChip key={data._id} name={data.firstName} photo={data.photo} />
-          ))}
+        <div className="flex min-h-0 flex-col gap-1">
+          <div className="shrink-0">Friends</div>
+          <div className="flex flex-col gap-1 overflow-y-auto">
+            {connectionData.map((data) => (
+              <UserChip key={data._id} name={data.firstName} photo={data.photo} />
+            ))}
+          </div>
         </div>
         <Chat />
       </div>

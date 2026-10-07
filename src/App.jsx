@@ -7,6 +7,7 @@ import Profile from "./component/Profile";
 import Error from "./component/Error";
 import Connection from "./component/Connection";
 import Base from "./component/Base";
+import PendingRequest from "./component/PendingRequest";
 
 function App() {
   const router = createBrowserRouter([
@@ -23,6 +24,8 @@ function App() {
             { path: "", element: <Feed /> },
             { path: "profile", element: <Profile /> },
             { path: "connection", element: <Connection /> },
+            { path: "request", element: <PendingRequest /> },
+
           ],
         },
       ],

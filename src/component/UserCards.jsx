@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { removeFeed } from "../utils/redux/slices/feedSlice";
 
 const UserCard = ({ user }) => {
-  const { firstName, lastName, photo, age, gender, about, skills = [] } = user;
+  let { firstName, lastName, photo, age, gender, about, skills = [] } = user;
   const dispatch = useDispatch();
 
   const onPass = () => {
@@ -15,6 +15,10 @@ const UserCard = ({ user }) => {
   const MAX_SKILLS = 5;
   const shownSkills = skills.slice(0, MAX_SKILLS);
   const extra = skills.length - shownSkills.length;
+
+  if (["https://www.example.com", ""].includes(photo)) {
+    photo = "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG.png";
+  }
 
   return (
     <article className="flex h-150 w-full max-w-sm flex-col overflow-hidden rounded-4xl border border-[#2d2760] bg-[#1d1745]">

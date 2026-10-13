@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 
 const UserChip = (props) => {
-  const { name, photo } = props;
-  const [showRing, setShowRing] = useState(false);
+  const { userId, name, photo, handleClick } = props;
+  const [chatSelected, setChatSelected] = useState(false);
+
+  const clickHandler = () => {
+    setChatSelected(!chatSelected);
+    handleClick(userId);
+  };
 
   return (
-    <div className=" w-9/10" onClick={() => setShowRing(!showRing)}>
-      <div className={`card bg-base-200 ${showRing ? "aura aura-dual" : ""}`}>
+    <div className=" w-9/10" onClick={clickHandler}>
+      <div className={`card  ${chatSelected ? "bg-base-200" : "bg-base-100"}`}>
         <div className="card-body">
           <div className="flex items-center">
             <div className="avatar">

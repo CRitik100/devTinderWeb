@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import UserChip from "./UserChip";
 import { useDispatch, useSelector } from "react-redux";
 import { updateConection } from "../utils/redux/slices/connection";
@@ -8,6 +8,7 @@ import ShimmerUI from "./ShimmerUI";
 import Chat from "./Chat";
 
 const Connection = () => {
+  const [clickedUserId, setClickedUserId] = useState("");
   const connectionData = useSelector((store) => store.connection.data);
   const dispatch = useDispatch();
 
@@ -27,6 +28,10 @@ const Connection = () => {
     getConnection();
   }, []);
 
+  const userClickHandler = (id) => {
+    setClickedUserId(id);
+  };
+
   return !connectionData ? (
     <ShimmerUI />
   ) : (
@@ -36,11 +41,17 @@ const Connection = () => {
           <div className="shrink-0">Friends</div>
           <div className="flex flex-col gap-1 overflow-y-auto">
             {connectionData.map((data) => (
-              <UserChip key={data._id} name={data.firstName} photo={data.photo} />
+              <UserChip
+                key={data._id}
+                userId={data._id}
+                name={data.firstName}
+                photo={data.photo}
+                handleClick={userClickHandler}
+              />
             ))}
           </div>
         </div>
-        <Chat />
+        <Chat userId={clickedUserId} />
       </div>
     </div>
   );

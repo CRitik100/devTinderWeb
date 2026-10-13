@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router";
-import Logo from "./Logo";
+import Logo from "./icon/Logo";
 
 const Base = () => {
   return (

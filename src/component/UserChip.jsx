@@ -1,11 +1,9 @@
 import { useId, useState } from "react";
 
 const UserChip = (props) => {
-  const { userId, name, photo, handleClick } = props;
-  const [chatSelected, setChatSelected] = useState(false);
+  const { userId, name, photo, handleClick, chatSelected } = props;
 
   const clickHandler = () => {
-    setChatSelected(!chatSelected);
     handleClick(userId);
   };
 

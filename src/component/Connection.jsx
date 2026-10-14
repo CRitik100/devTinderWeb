@@ -46,6 +46,7 @@ const Connection = () => {
                 name={data.firstName}
                 photo={data.photo}
                 handleClick={userClickHandler}
+                chatSelected={clickedUserId === data._id}
               />
             ))}
           </div>

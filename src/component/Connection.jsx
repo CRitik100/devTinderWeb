@@ -18,7 +18,6 @@ const Connection = () => {
         withCredentials: true,
       });
       dispatch(updateConection(friends?.data?.data));
-      console.log(friends?.data?.data);
     } catch (error) {
       console.log("Error : " + error.response?.data);
     }

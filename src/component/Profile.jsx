@@ -56,9 +56,9 @@ const Profile = () => {
   };
 
   return (
-    <main className="relative h-[calc(100dvh-4rem)] overflow-hidden bg-[#110e2b] px-4 py-7 sm:px-6">
-      <div className="relative mx-auto flex justify-between items-center  w-full max-w-5xl gap-8 lg:grid-cols-[minmax(0,1fr)_24rem] ">
-        <section className="max-h-[calc(100dvh-8rem)] overflow-y-auto rounded-4xl border border-[#2d2760] bg-[#1d1745] p-6 sm:p-8">
+    <main className="relative min-h-[calc(100dvh-4rem)] bg-[#110e2b] px-3 py-4 sm:px-6 sm:py-6">
+      <div className="mx-auto grid w-full max-w-5xl grid-cols-1 items-start gap-5 sm:gap-6 lg:min-h-[calc(100dvh-7rem)] lg:grid-cols-[minmax(0,1fr)_24rem] lg:items-center lg:gap-8">
+        <section className="w-full min-w-0 rounded-3xl border border-[#2d2760] bg-[#1d1745] p-4 sm:rounded-4xl sm:p-6 lg:p-8">
           <h1 className="text-3xl font-bold tracking-tight text-[#f1eeff]">
             Edit your profile.
           </h1>
@@ -214,7 +214,9 @@ const Profile = () => {
           </form>
         </section>
 
-        <UserCard user={previewUser} />
+        <div className="flex w-full justify-center">
+          <UserCard user={previewUser} />
+        </div>
       </div>
     </main>
   );

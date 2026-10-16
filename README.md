@@ -1,41 +1,39 @@
-# Let's Start..🚀
+# DevTinder Web
 
-## How to start the Vite + React Project.
+DevTinder Web is a modern React frontend for a developer-focused social networking app. Users can explore a developer feed, view profiles, connect with other developers, manage pending requests, and navigate through a clean routing-based experience.
 
-1. run the command: npm create vite@latest
-   - This will configure the project so select the appropriate options.
-   - Once the configuration is completed, you can see basic structure of the project, remove the unnecessary files which are not req.
-2. git init.
-   - This will intialize the git in your project.
-   - And also push the changes to remote repo.
-3. install tailwindcss.
-   - npm install tailwindcss @tailwindcss/vite
-     Add the @tailwindcss/vite plugin to your Vite configuration.
-     - import react from "@vitejs/plugin-react";
-       import tailwindcss from "@tailwindcss/vite";
-       import { defineConfig } from "vite";
-       export default defineConfig({
-       plugins: [react(), tailwindcss()],
-       });
-     - Import Tailwind CSS (index.css)
-       @import "tailwindcss";
-4. install daisyUI as a tailwind plugin.
-   - npm i -D daisyui@latest
-5. install react-router libraray for creating the routes in the project.(npm i react-router)
-   - At different we want different componenet to load.
-     for ex. / -> Home component
-     /dashboard -> DashBoard component
-     /about. -> About component
-6. install Axios for making an API Call.
-      - API calls can be done even using fetch.
-      - To save the token you have to pass the {
-        withCredentials: true,
-      }, in axios, and in the backend the cors middleware must be setup.
-7. install react-redux toolkit.
-   npm install @reduxjs/toolkit react-redux
-8. 
+## Features
 
-## 📝 Notes
+- User authentication flow with login and signup pages
+- Landing/welcome screen for the app
+- Developer feed and profile browsing
+- Connections and pending request management
+- Responsive UI built with Tailwind CSS and DaisyUI
+- Route-based navigation with React Router
+- Centralized state management with Redux Toolkit
+- API communication through Axios
+- Socket client ready for real-time features
 
-- **Use ES Modules, not CommonJS.** Use `import` / `export` instead of `require` / `module.exports`. Vite projects already set `"type": "module"` in `package.json`.
-- When you wrap your component in <StrictMode> <App/> </StrictMode> then react will runs components and effects twice. but why is the question ? It is doing to check whether by running two times are you getting the same result or diffent to catch the bugs early. Remember it renders no UI and has no effect on build productions.
+## Tech Stack
+
+- React 19
+- Vite
+- Tailwind CSS
+- DaisyUI
+- React Router
+- Redux Toolkit
+- Axios
+- Socket.IO Client
+
+
+## Notes
+
+- This project is configured as an ES module-based Vite app.
+- React Router is used to manage route-level navigation for login, signup, home, profile, connection, and request screens.
+- Tailwind and DaisyUI are used to keep the interface modern and responsive.
+- The app is designed to work with a backend service for authentication, connections, and profile data.
+
+## Contributing
+
+Feel free to fork the repository, create a feature branch, and submit a pull request with your improvements.
+

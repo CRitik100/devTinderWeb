@@ -49,10 +49,10 @@ const PendingRequest = () => {
   return !pendingConnectionData ? (
     <ShimmerUI />
   ) : (
-    <div className=" h-[calc(100dvh-4rem)] w-dvw flex justify-center items-center">
-      <div className="border-[#2d2760] bg-[#1d1745] w-1/3 h-5/6 rounded-2xl p-11 ">
-        <ul className="list bg-base-100 rounded-box shadow-md">
-          <li className="p-4 pb-2 text-s font-bold text-[#eb5e7c] opacity-60 tracking-wide">
+    <main className="flex min-h-[calc(100dvh-4rem)] w-full items-center justify-center px-3 py-4 sm:px-5 lg:h-[calc(100dvh-4rem)] lg:min-h-0">
+      <section className="flex w-full flex-col rounded-2xl border border-[#2d2760] bg-[#1d1745] p-3 sm:w-11/12 sm:p-6 md:w-2/3 lg:h-5/6 lg:w-1/3 lg:p-11">
+        <ul className="list min-w-0 rounded-box bg-base-100 shadow-md lg:min-h-0 lg:flex-1 lg:overflow-y-auto">
+          <li className="p-4 pb-2 text-sm font-bold tracking-wide text-[#eb5e7c] opacity-60 sm:text-base">
             They are looking to work with you.
           </li>
           {pendingConnectionData.map((data) => (
@@ -66,8 +66,8 @@ const PendingRequest = () => {
             />
           ))}
         </ul>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

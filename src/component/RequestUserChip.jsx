@@ -2,25 +2,25 @@ const RequestUserChip = (props) => {
   const { photo, firstName, lastName, about, onReview } = props;
 
   return (
-    <li className="list-row">
+    <li className="list-row min-w-0 gap-2 sm:gap-4">
       <div>
         <img
-          className="size-10 rounded-box"
+          className="size-9 rounded-box sm:size-10"
           alt={`${firstName} ${lastName}`}
           src={photo}
         />
       </div>
 
-      <div>
-        <div>{`${firstName} ${lastName}`}</div>
-        <div className="text-xs uppercase font-semibold opacity-60">
+      <div className="min-w-0">
+        <div className="wrap-break-word font-medium">{`${firstName} ${lastName}`}</div>
+        <div className="wrap-break-word text-xs font-semibold opacity-60">
           {about}
         </div>
       </div>
 
       {/* Reject */}
       <button
-        className="btn btn-square btn-ghost text-error hover:bg-error/10"
+        className="btn btn-square btn-sm btn-ghost shrink-0 text-error hover:bg-error/10 sm:btn-md"
         aria-label="Reject request"
         title="Reject"
         onClick={() => onReview("rejected")}
@@ -44,7 +44,7 @@ const RequestUserChip = (props) => {
 
       {/* Accept */}
       <button
-        className="btn btn-square btn-ghost text-success hover:bg-success/10"
+        className="btn btn-square btn-sm btn-ghost shrink-0 text-success hover:bg-success/10 sm:btn-md"
         aria-label="Accept request"
         title="Accept"
         onClick={() => onReview("accepted")}
